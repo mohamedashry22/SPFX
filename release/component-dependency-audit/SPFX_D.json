@@ -1,0 +1,8 @@
+{
+  "bundles": {
+    "reskilling-web-part": {
+      "dependencies": [],
+      "asyncChunks": {}
+    }
+  }
+}

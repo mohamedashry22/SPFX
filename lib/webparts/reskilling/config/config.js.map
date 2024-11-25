@@ -1,0 +1,1 @@
+{"version":3,"file":"config.js","sourceRoot":"","sources":["../../../../src/webparts/reskilling/config/config.ts"],"names":[],"mappings":"AAAA,MAAM,CAAC,IAAM,MAAM,GAAG;IAClB,QAAQ,EAAE,iDAAiD;IAC3D,UAAU,EAAE;QACV,UAAU,EAAE,WAAW;QACvB,QAAQ,EAAE,UAAU;QACpB,YAAY,EAAE,cAAc;QAC5B,UAAU,EAAE,YAAY;KACzB;CACF,CAAC"}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "reskilling-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/reskilling/ReskillingProgramWebPart.js",
+          "manifest": "./src/webparts/reskilling/ReskillingProgramWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "ReskillingProgramWebPartStrings": "lib/webparts/reskilling/loc/{locale}.js"
+  }
+}
