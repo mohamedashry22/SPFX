@@ -20,7 +20,6 @@ const ReskillingProgram: React.FC<IReskillingProgramProps> = ({ context }) => {
   const [roles, setRoles] = React.useState<string[]>([]);
   const [loading, setLoading] = React.useState<boolean>(true);
 
-  // Fetch user roles from SharePoint list
   React.useEffect(() => {
     const fetchUserRoles = async () => {
       try {
@@ -48,17 +47,14 @@ const ReskillingProgram: React.FC<IReskillingProgramProps> = ({ context }) => {
     fetchUserRoles();
   }, [context]);
 
-  // Show loading spinner until user roles are fetched
   if (loading) {
     return <LoadingSpinner />;
   }
 
-  // Show Unauthorized page if no roles are found
   if (roles.length === 0) {
     return <UnauthorizedPage />;
   }
 
-  // Determine the default dashboard based on the user's roles
   let defaultRolePath = '';
   if (roles.includes('Program Coordinator')) {
     defaultRolePath = '/program-coordinator';
@@ -72,15 +68,12 @@ const ReskillingProgram: React.FC<IReskillingProgramProps> = ({ context }) => {
 
   return (
     <Router>
-      {/* Header will show based on roles */}
       <Header roles={roles} />
       <Switch>
-        {/* Redirect to the user's default dashboard */}
         <Route exact path="/">
           <Redirect to={defaultRolePath} />
         </Route>
 
-        {/* Program Coordinator Dashboard */}
         <Route path="/program-coordinator">
           {roles.includes('Program Coordinator') ? (
             <ProgramCoordinatorDashboard context={context} />
@@ -89,7 +82,6 @@ const ReskillingProgram: React.FC<IReskillingProgramProps> = ({ context }) => {
           )}
         </Route>
 
-        {/* Mentor Dashboard */}
         <Route path="/mentor">
           {roles.includes('Mentor') ? (
             <MentorDashboard context={context} />
@@ -98,7 +90,6 @@ const ReskillingProgram: React.FC<IReskillingProgramProps> = ({ context }) => {
           )}
         </Route>
 
-        {/* Interviewer Dashboard */}
         <Route path="/interviewer">
           {roles.includes('Interviewer') ? (
             <InterviewerDashboard context={context} />
@@ -107,7 +98,6 @@ const ReskillingProgram: React.FC<IReskillingProgramProps> = ({ context }) => {
           )}
         </Route>
 
-        {/* Catch-all Route - redirects to home */}
         <Route path="*">
           <Redirect to="/" />
         </Route>

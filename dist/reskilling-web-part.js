@@ -903,7 +903,6 @@ var ReskillingProgram = function (_a) {
     var context = _a.context;
     var _b = react__WEBPACK_IMPORTED_MODULE_0__.useState([]), roles = _b[0], setRoles = _b[1];
     var _c = react__WEBPACK_IMPORTED_MODULE_0__.useState(true), loading = _c[0], setLoading = _c[1];
-    // Fetch user roles from SharePoint list
     react__WEBPACK_IMPORTED_MODULE_0__.useEffect(function () {
         var fetchUserRoles = function () { return __awaiter(void 0, void 0, void 0, function () {
             var sp, currentUser, userEmail, USER_ROLES_LIST, userRoles, roleNames, error_1;
@@ -940,15 +939,12 @@ var ReskillingProgram = function (_a) {
         }); };
         fetchUserRoles();
     }, [context]);
-    // Show loading spinner until user roles are fetched
     if (loading) {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_LoadingSpinner__WEBPACK_IMPORTED_MODULE_5__["default"], null);
     }
-    // Show Unauthorized page if no roles are found
     if (roles.length === 0) {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_UnauthorizedPage__WEBPACK_IMPORTED_MODULE_4__["default"], null);
     }
-    // Determine the default dashboard based on the user's roles
     var defaultRolePath = '';
     if (roles.includes('Program Coordinator')) {
         defaultRolePath = '/program-coordinator';
